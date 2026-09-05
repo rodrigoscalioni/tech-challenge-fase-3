@@ -7,10 +7,10 @@ Este documento complementa o README com uma descrição técnica resumida da imp
 1. Os CSVs das pesquisas de 2023, 2024 e 2025 são armazenados no Amazon S3, na camada Bronze.
 2. AWS Glue Crawlers identificam os schemas e registram as tabelas no database `tech_challenge`.
 3. O AWS Glue Studio padroniza os campos de cada edição e realiza a união das três bases.
-4. A saída é armazenada em Parquet com compressão Snappy na camada conceitual Gold. O caminho físico utilizado no projeto é `s3://dados-fase3/golde/pesquisa_data_hackers/`.
+4. A saída é armazenada em Parquet com compressão Snappy na camada conceitual Gold. O caminho físico utilizado no projeto é `s3://dados-fase3/gold/pesquisa_data_hackers/`.
 5. A tabela consolidada é registrada no Glue Data Catalog como `pesquisa_data_hackers`.
 6. O job PySpark `tech_challenge_normalizacao_ia` deduplica a base e normaliza as duas perguntas multivaloradas de IA.
-7. Os resultados são gravados em `golde/analytics/uso_ia_generativa/` e `golde/analytics/uso_ia_empresa/`.
+7. Os resultados são gravados em `gold/analytics/uso_ia_generativa/` e `gold/analytics/uso_ia_empresa/`.
 8. O crawler `crawler-gold-analytics-ia` cataloga as duas estruturas separadamente.
 9. O Amazon Athena valida os resultados e enriquece cada tabela de IA com as dimensões da base principal.
 10. As bases de consumo são exportadas para utilização no Tableau Public.
