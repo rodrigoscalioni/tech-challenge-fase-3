@@ -17,8 +17,8 @@ Glue Data Catalog:
 Saídas
 ------
 S3:
-    s3://dados-fase3/golde/analytics/uso_ia_generativa/
-    s3://dados-fase3/golde/analytics/uso_ia_empresa/
+    s3://dados-fase3/gold/analytics/uso_ia_generativa/
+    s3://dados-fase3/gold/analytics/uso_ia_empresa/
 
 Observação
 ----------
@@ -421,7 +421,7 @@ print("=== GRAVANDO USO IA GENERATIVA ===")
     .format("parquet")
     .option("compression", "snappy")
     .save(
-        "s3://dados-fase3/golde/analytics/uso_ia_generativa/"
+        "s3://dados-fase3/gold/analytics/uso_ia_generativa/"
     )
 )
 
@@ -435,7 +435,7 @@ print("=== GRAVANDO USO IA EMPRESA ===")
     .format("parquet")
     .option("compression", "snappy")
     .save(
-        "s3://dados-fase3/golde/analytics/uso_ia_empresa/"
+        "s3://dados-fase3/gold/analytics/uso_ia_empresa/"
     )
 )
 
