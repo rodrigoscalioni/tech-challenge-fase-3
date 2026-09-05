@@ -65,7 +65,7 @@ O job principal do AWS Glue Studio realiza seleção de campos, padronização d
 A base consolidada é armazenada em:
 
 ```text
-s3://dados-fase3/golde/pesquisa_data_hackers/
+s3://dados-fase3/gold/pesquisa_data_hackers/
 ```
 
 Formato de saída:
