@@ -22,7 +22,6 @@ flowchart LR
     K --> L[Tableau Public\n4 abas]
 ```
 
-> A camada conceitual é **Gold**. No ambiente implementado, o caminho físico foi criado como `s3://dados-fase3/golde/` e foi mantido para preservar a arquitetura executada.
 
 ## Objetivo
 
