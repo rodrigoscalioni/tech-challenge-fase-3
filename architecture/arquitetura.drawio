@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="ChatGPT">
   <diagram id="tech-challenge-final" name="Arquitetura Final">
-    <mxGraphModel dx="2826" dy="1682" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+    <mxGraphModel dx="2328" dy="1375" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -14,80 +14,52 @@
           <mxGeometry height="125" width="230" x="330" y="156" as="geometry" />
         </mxCell>
         <mxCell id="etl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;labelBackgroundColor=none;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;AWS Glue Studio&lt;br&gt;&lt;br&gt;Select Fields / Change Schema&lt;br&gt;Padronização dos 3 anos&lt;br&gt;SQL por ano / tratamento de header&lt;br&gt;Union 2023 + 2024 + 2025&lt;/span&gt;" vertex="1">
-          <mxGeometry height="155" width="285" x="620" y="141" as="geometry" />
+          <mxGeometry height="125" width="285" x="600" y="156" as="geometry" />
         </mxCell>
-        <mxCell id="gold" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;labelBackgroundColor=none;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Amazon S3 — GOLDE&lt;br&gt;s3://dados-fase3/golde/pesquisa_data_hackers/&lt;br&gt;&lt;br&gt;Parquet + Snappy / 14 campos&lt;br&gt;&lt;/span&gt;" vertex="1">
-          <mxGeometry height="145" width="300" x="970" y="146" as="geometry" />
+        <mxCell id="gold" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;labelBackgroundColor=none;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Amazon S3 — GOLD&lt;br&gt;s3://dados-fase3/gold/pesquisa_data_hackers/&lt;br&gt;&lt;br&gt;Parquet + Snappy / 14 campos&lt;br&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="125" width="310" x="910" y="156" as="geometry" />
         </mxCell>
-        <mxCell id="catalog_gold" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;labelBackgroundColor=none;" value="Glue Crawler Golde&#xa;+ Data Catalog&#xa;&#xa;Tabela: pesquisa_data_hackers" vertex="1">
-          <mxGeometry height="115" width="220" x="1330" y="161" as="geometry" />
+        <mxCell id="catalog_gold" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;labelBackgroundColor=none;" value="Glue Crawler Gold&lt;br&gt;+ Data Catalog&lt;br&gt;&lt;br&gt;Tabela: pesquisa_data_hackers" vertex="1">
+          <mxGeometry height="115" width="220" x="1260" y="161" as="geometry" />
         </mxCell>
         <mxCell id="athena_base" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;labelBackgroundColor=none;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Amazon Athena&lt;br&gt;&lt;br&gt;14.002 respondentes/linhas únicas&lt;br&gt;Validação e consultas SQL&lt;/span&gt;" vertex="1">
-          <mxGeometry height="145" width="310" x="1660" y="146" as="geometry" />
+          <mxGeometry height="145" width="310" x="1591" y="146" as="geometry" />
         </mxCell>
         <mxCell id="pyspark" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;labelBackgroundColor=none;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;AWS Glue Job (PySpark)&lt;br&gt;tech_challenge_normalizacao_ia&lt;br&gt;&lt;br&gt;Deduplicação da base&lt;br&gt;Normalização de campos multivalorados /&lt;br&gt;explode / classificação&amp;nbsp;&lt;/span&gt;" vertex="1">
-          <mxGeometry height="165" width="315" x="1282.5" y="336" as="geometry" />
+          <mxGeometry height="165" width="315" x="1213.5" y="336" as="geometry" />
         </mxCell>
         <mxCell id="ia_gen" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;labelBackgroundColor=none;" value="S3&lt;br&gt;uso_ia_generativa/&lt;br&gt;&lt;br&gt;Parquet&lt;br&gt;11.159 associações finais" vertex="1">
-          <mxGeometry height="125" width="250" x="1140" y="546" as="geometry" />
+          <mxGeometry height="125" width="250" x="1071" y="549" as="geometry" />
         </mxCell>
         <mxCell id="ia_emp" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;labelBackgroundColor=none;" value="S3&lt;br&gt;uso_ia_empresa/&lt;br&gt;&lt;br&gt;Parquet&lt;br&gt;16.120 associações finais" vertex="1">
-          <mxGeometry height="125" width="250" x="1470" y="546" as="geometry" />
+          <mxGeometry height="125" width="250" x="1401" y="549" as="geometry" />
         </mxCell>
         <mxCell id="crawler_ia" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;labelBackgroundColor=none;" value="Glue Crawler Analytics IA&lt;br&gt;crawler-gold-analytics-ia&lt;br&gt;&lt;br&gt;Tabelas catalogadas:&lt;br&gt;uso_ia_generativa e uso_ia_empresa" vertex="1">
-          <mxGeometry height="135" width="280" x="1300" y="716" as="geometry" />
+          <mxGeometry height="135" width="280" x="1231" y="721" as="geometry" />
         </mxCell>
         <mxCell id="athena_ia" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=13;labelBackgroundColor=none;" value="Amazon Athena&lt;br&gt;Queries analíticas enriquecidas" vertex="1">
-          <mxGeometry height="102" width="290" x="1290" y="868" as="geometry" />
+          <mxGeometry height="102" width="280" x="1231" y="884" as="geometry" />
         </mxCell>
         <mxCell id="csv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;labelBackgroundColor=none;" value="Exportação CSV&lt;br&gt;&lt;br&gt;Base geral + bases analíticas de IA&lt;br&gt;Camada de consumo para visualização" vertex="1">
-          <mxGeometry height="120" width="300" x="1665" y="351" as="geometry" />
+          <mxGeometry height="120" width="300" x="1596" y="351" as="geometry" />
         </mxCell>
-        <mxCell id="tableau" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=15;fontStyle=1;labelBackgroundColor=none;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Tableau Public&lt;br&gt;Panorama do Mercado de Dados no Brasil&lt;br&gt;&lt;br&gt;&lt;a href=&quot;https://public.tableau.com/app/profile/rodrigo.ribeiro4866/viz/fase_3_tech_challenge/AdooIA&quot;&gt;link&lt;/a&gt;&lt;/span&gt;" vertex="1">
-          <mxGeometry height="150" width="360" x="2033" y="336" as="geometry" />
+        <mxCell id="tableau" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontStyle=1;labelBackgroundColor=none;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Tableau Public&lt;br&gt;Panorama do Mercado de Dados no Brasil&lt;br&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="150" width="360" x="1964" y="336" as="geometry" />
         </mxCell>
-        <mxCell id="e1" edge="1" parent="1" source="bronze" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="crawler_b">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2" edge="1" parent="1" source="crawler_b" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="etl">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e3" edge="1" parent="1" source="etl" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="gold">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e4" edge="1" parent="1" source="gold" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="catalog_gold">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e5" edge="1" parent="1" source="catalog_gold" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="athena_base">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e6" edge="1" parent="1" source="catalog_gold" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="pyspark" value="Leitura da Gold">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e7" edge="1" parent="1" source="pyspark" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="ia_gen">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e8" edge="1" parent="1" source="pyspark" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="ia_emp">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e9" edge="1" parent="1" source="ia_gen" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="crawler_ia">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e10" edge="1" parent="1" source="ia_emp" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="crawler_ia">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e11" edge="1" parent="1" source="crawler_ia" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="athena_ia">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e12" edge="1" parent="1" source="athena_base" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="csv" value="Base geral">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e13" edge="1" parent="1" source="athena_ia" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="csv" value="IA enriquecida">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e14" edge="1" parent="1" source="csv" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=2;labelBackgroundColor=none;fontColor=default;" target="tableau">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="bronze" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="crawler_b"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="crawler_b" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="etl"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="etl" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="gold"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="gold" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="catalog_gold"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="catalog_gold" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="athena_base"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="catalog_gold" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="pyspark" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="pyspark" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="ia_gen"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="pyspark" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="ia_emp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="ia_gen" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="crawler_ia"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="ia_emp" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="crawler_ia"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="crawler_ia" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="athena_ia"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="athena_base" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="csv" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="athena_ia" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;labelBackgroundColor=none;fontColor=default;" target="csv" value=""><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="csv" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=1;labelBackgroundColor=none;fontColor=default;" target="tableau"><mxGeometry relative="1" as="geometry" /></mxCell>
       </root>
     </mxGraphModel>
   </diagram>
