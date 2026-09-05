@@ -22,7 +22,6 @@ flowchart LR
     K --> L[Tableau Public\n4 abas]
 ```
 
-
 ## Objetivo
 
 Construir um pipeline de engenharia de dados capaz de:
@@ -104,12 +103,12 @@ ano_pesquisa
 
 ### 4. Normalização de Inteligência Artificial
 
-O job PySpark `tech_challenge_normalizacao_ia` trata as perguntas multivaloradas de IA.
+O job PySpark [`tech_challenge_normalizacao_ia`](glue/normalizacao_ia.py) trata as perguntas multivaloradas de IA.
 
 O processamento inclui:
 
 - `dropDuplicates()`;
-- classificação semântica das respostas;
+- classificação baseada em **regras textuais determinísticas**;
 - criação de arrays de categorias;
 - filtragem de valores nulos;
 - `explode` para transformar múltiplas seleções em associações individuais;
@@ -158,6 +157,8 @@ tech_challenge.uso_ia_empresa
 
 As tabelas de IA são enriquecidas separadamente com as dimensões da base principal. Essa decisão evita multiplicação cartesiana quando um mesmo respondente possui múltiplas categorias nas duas perguntas de IA.
 
+As consultas utilizadas na validação e na preparação das bases estão disponíveis em [`sql/validacao_base.sql`](sql/validacao_base.sql) e [`sql/consumo_tableau.sql`](sql/consumo_tableau.sql).
+
 ## Dashboard
 
 O resultado analítico é apresentado em um dashboard no Tableau Public com quatro abas:
@@ -169,6 +170,17 @@ O resultado analítico é apresentado em um dashboard no Tableau Public com quat
 
 Dashboard: [Panorama do Mercado de Dados no Brasil](https://public.tableau.com/app/profile/rodrigo.ribeiro4866/viz/fase_3_tech_challenge/apresentacao)
 
+## Principais insights
+
+A análise das amostras anuais evidencia alguns movimentos relevantes entre 2023 e 2025:
+
+- **IA generativa:** entre os respondentes das questões de IA, a participação do uso de soluções gratuitas caiu de **58,7% em 2023 para 23,2% em 2025**, enquanto soluções **pagas pela empresa chegaram a 32,1%** em 2025.
+- **Adoção empresarial de IA:** a distribuição das respostas sugere maior estruturação corporativa. A categoria **Direcionamento corporativo** passou de **7,1% em 2023 para 18,1% em 2025**, enquanto **Uso individual / descentralizado** caiu de **31,1% para 24,4%**.
+- **Modelo de trabalho:** a participação do modelo **100% remoto** caiu de **46,3% em 2023 para 39,7% em 2025**, enquanto o **100% presencial** passou de **16,6% para 20,8%**.
+- **Remuneração:** a distribuição salarial apresenta progressão clara conforme aumentam a senioridade e o tempo de experiência, com maior concentração dos profissionais mais experientes nas faixas salariais superiores.
+
+Esses resultados descrevem mudanças na distribuição das respostas das amostras de cada edição e não devem ser interpretados como acompanhamento longitudinal dos mesmos indivíduos.
+
 ## Principais números
 
 | Indicador | Resultado |
@@ -179,6 +191,14 @@ Dashboard: [Panorama do Mercado de Dados no Brasil](https://public.tableau.com/a
 | Associações de IA generativa | 11.159 |
 | Associações de uso de IA nas empresas | 16.120 |
 | Abas do dashboard | 4 |
+
+## Artefatos técnicos
+
+- [Job PySpark de normalização de IA](glue/normalizacao_ia.py)
+- [SQL de validação da base principal](sql/validacao_base.sql)
+- [SQL das bases analíticas para o Tableau](sql/consumo_tableau.sql)
+- [Documentação detalhada do pipeline](docs/pipeline.md)
+- [Arquitetura editável em draw.io](architecture/arquitetura.drawio)
 
 ## Estrutura do repositório
 
