@@ -6,21 +6,9 @@ O projeto integra três edições da pesquisa, padroniza os schemas, trata dupli
 
 ## Visão geral
 
-```mermaid
-flowchart LR
-    A[Data Hackers / Kaggle\nPesquisas 2023-2025] --> B[Amazon S3\nBronze]
-    B --> C[AWS Glue\nCrawlers + Data Catalog]
-    C --> D[AWS Glue Studio\nETL]
-    D --> E[Amazon S3\nGold - Parquet + Snappy]
-    E --> F[AWS Glue PySpark\nNormalização de IA]
-    E --> G[Amazon Athena\nBase principal]
-    F --> H[Amazon S3\nAnalytics IA]
-    H --> I[AWS Glue Catalog]
-    I --> J[Amazon Athena\nConsultas analíticas]
-    G --> K[Camada de consumo]
-    J --> K
-    K --> L[Tableau Public\n4 abas]
-```
+![Arquitetura final do pipeline de dados](architecture/arquitetura.png)
+
+A arquitetura também está disponível em formato [editável no draw.io](architecture/arquitetura.drawio).
 
 ## Objetivo
 
@@ -198,6 +186,7 @@ Esses resultados descrevem mudanças na distribuição das respostas das amostra
 - [SQL de validação da base principal](sql/validacao_base.sql)
 - [SQL das bases analíticas para o Tableau](sql/consumo_tableau.sql)
 - [Documentação detalhada do pipeline](docs/pipeline.md)
+- [Arquitetura em PNG](architecture/arquitetura.png)
 - [Arquitetura editável em draw.io](architecture/arquitetura.drawio)
 
 ## Estrutura do repositório
@@ -207,6 +196,7 @@ tech-challenge-fase-3/
 ├── README.md
 ├── .gitignore
 ├── architecture/
+│   ├── arquitetura.png
 │   └── arquitetura.drawio
 ├── glue/
 │   └── normalizacao_ia.py
